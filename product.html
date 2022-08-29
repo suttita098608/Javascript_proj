@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Dior Makeup</h2>
+<img id="pic" src="cat.jpg"><br>
+<img id="pic" src="dog.jpg"><br>
+<p>Template literals allows variables in strings:</p>
+<p>Template literals allows variables in strings:</p>
+<p id="demo"></p>
+
+<script>
+let header = "Product";
+let tags = ["DIOR FOREVER", "CAPTURE TOTALE", "DIOR PRESTIGE", "5 COULEURS COUTURE - VELVET LIMITED EDITION", "5 COULEURS COUTURE DIORIVIERA", 
+"5 COULEURS COUTURE - NEW LOOK LIMITED EDITION", "DIOR ADDICT", "ROUGE DIOR ULTRA ROUGE", "ROUGE DIOR FOREVER LIQUID", "ROUGE DIOR"];
+
+let html = `<h2>${header}</h2><ul>`;
+    function changeToDog(){ document.getElementById('pic').src="dog.jpg";
+    }
+    function changeToCat(){ document.getElementById('pic').src="cat.jpg";
+    }
+for (const x of tags) {
+  html += `<li>${x}</li>`;
+}
+
+html += `</ul>`;
+document.getElementById("demo").innerHTML = html;
+</script>
+
+</body>
+</html>
