@@ -1,31 +1,61 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en"> 
 
-<h2>Dior Makeup</h2>
-<img id="pic" src="cat.jpg"><br>
-<img id="pic" src="dog.jpg"><br>
-<p>Template literals allows variables in strings:</p>
-<p>Template literals allows variables in strings:</p>
-<p id="demo"></p>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dior Makeup</title>
+</head>
 
 <script>
-let header = "Product";
-let tags = ["DIOR FOREVER", "CAPTURE TOTALE", "DIOR PRESTIGE", "5 COULEURS COUTURE - VELVET LIMITED EDITION", "5 COULEURS COUTURE DIORIVIERA", 
-"5 COULEURS COUTURE - NEW LOOK LIMITED EDITION", "DIOR ADDICT", "ROUGE DIOR ULTRA ROUGE", "ROUGE DIOR FOREVER LIQUID", "ROUGE DIOR"];
+    var check = true;
+    const id01 = { id: 01, name: "DIOR FOREVER", price: 2550, img: '01.jpg' }
+    const id02 = { id: 02, name: "CAPTURE TOTALE", price: 3250, img: '02.jpg' }
+    const id03 = { id: 03, name: "DIOR PRESTIGE", price: 4300, img: '03.jpg' }
+    const id04 = { id: 04, name: "VELVET LIMITED EDITION", price: 2800, img: '04.jpg' }
+    const id05 = { id: 05, name: "DIORIVIERA", price: 2900, img: '05.jpg' }
+    const id06 = { id: 06, name: "NEW LOOK LIMITED EDITION", price: 2900, img: '06.jpg' }
+    const id07 = { id: 07, name: "DIOR ADDICT", price: 1550, img: '07.jpg' }
+    const id08 = { id: 08, name: "ROUGE DIOR ULTRA ROUGE", price: 1550, img: '08.jpg' }
+    const id09 = { id: 09, name: "ROUGE DIOR", price: 1650, img: '09.jpg' }
+    const id10 = { id: 10, name: "ROUGE DIOR FOREVER LIQUID", price: 1550, img: '10.jpg' }
 
-let html = `<h2>${header}</h2><ul>`;
-    function changeToDog(){ document.getElementById('pic').src="dog.jpg";
-    }
-    function changeToCat(){ document.getElementById('pic').src="cat.jpg";
-    }
-for (const x of tags) {
-  html += `<li>${x}</li>`;
-}
+    const Arr_menu = [id01, id02, id03, id04, id05, id06, id07, id08, id09, id10]
 
-html += `</ul>`;
-document.getElementById("demo").innerHTML = html;
+function showMenu() {
+        if (check) {
+            const Div = document.createElement("div");
+            Div.setAttribute("id", "mydiv");
+            document.body.appendChild(Div);
+            Arr_menu.forEach(myFunction);
+            check = false;
+        }
+        else {
+            const element = document.getElementById('mydiv')
+            element.remove();
+            check = true;
+        }
+    }
+
+    function myFunction(value) {
+        var img = document.createElement("img");
+        var a = document.createElement("a");
+        var b = document.createTextNode("  ID." + value.id + "  " + value.name + "  Price : " + value.price + " bath")
+        a.appendChild(b)
+        img.src = value.img
+        img.style.width='350px'
+        document.getElementById("mydiv").appendChild(img)
+        document.getElementById("mydiv").appendChild(a)
+        
+    }
 </script>
+<body>
+    <h2>Dior Makeup</h2>
+    <p>Click the button  to show all the product</p>
+    <button type="button" onclick="showMenu()">All Product</button>
 
+    <p id="demo"></p>
 </body>
+
 </html>
